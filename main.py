@@ -1,10 +1,37 @@
-##Test Change
-number = [1, 2, 3]
-new_numbers = [n + 1 for n in number]
-name = "Angela"
-new_list = [letter for letter in name]
-range_change = [n + 1 for n in range(1,5)]
-range_change2 = [n * 2 for n in range(1,5)]
-names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
-long_names_test = [name.upper() for name in names]
-long_names = [name.upper() for name in names if len(name) > 4]
+student_dict = {
+    "student": ["Angela", "James", "Lily"], 
+    "score": [56, 76, 98]
+}
+
+#Looping through dictionaries:
+for (key, value) in student_dict.items():
+    #Access key and value
+    pass
+
+import pandas
+student_data_frame = pandas.DataFrame(student_dict)
+
+#Loop through rows of a data frame
+for (index, row) in student_data_frame.iterrows():
+    #Access index and row
+    #Access row.student or row.score
+    pass
+
+df = pandas.read_csv("nato_phonetic_alphabet.csv")
+#print(df)
+# Keyword Method with iterrows()
+# {new_key:new_value for (index, row) in df.iterrows()}
+
+
+#{"A": "Alfa", "B": "Bravo"}
+nato_bet = {row.letter:row.code for (index, row) in df.iterrows()}
+#print(nato_bet)
+
+
+word = input("Enter a word: ").upper()
+
+phon_word = [nato_bet.get(letter) for letter in word]
+print(phon_word)
+
+
+
